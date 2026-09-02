@@ -1,0 +1,14 @@
+{
+    "name": "puppet-dnf2git",
+    "version": "0.1.0",
+    "author": "Maxime Boissonneault",
+    "summary": "Puppet code to configure exports of dnf/yum package lists to a git repository",
+    "license": "MIT",
+    "source": "https://github.com/computecanada/puppet-dnf2git",
+    "project_page": "https://github.com/computecanada/puppet-dnf2git",
+    "issues_url": "https://github.com/computecanada/puppet-dnf2git/issues",
+    "dependencies": [ 
+        { "name":"puppetlabs/stdlib", "version_requirement": ">= 5.2.0"  }
+    ]
+}
+
