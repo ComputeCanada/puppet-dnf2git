@@ -52,5 +52,11 @@ class dnf2git (
     content => "# Managed by Puppet\n*:any:${software_list_generator_prefix}/upload_software_list.py\n",
     require => [File['/etc/dnf/plugins/post-transaction-actions.d'], File["${software_list_generator_prefix}/upload_software_list.py"]],
   }
+
+  exec { 'upload_software_list.py':
+    command => "${software_list_generator_prefix}/upload_software_list.py > /var/log/upload_software_list.log",
+    creates => '/var/log/upload_software_list.log',
+    require => File["${software_list_generator_prefix}/upload_software_list.py"],
+  }
 }
 
