@@ -53,6 +53,7 @@ class dnf2git (
     require => [File['/etc/dnf/plugins/post-transaction-actions.d'], File["${software_list_generator_prefix}/upload_software_list.py"]],
   }
 
+  Package<| |> -> Exec['upload_software_list.py']
   exec { 'upload_software_list.py':
     command => "${software_list_generator_prefix}/upload_software_list.py > /var/log/upload_software_list.log",
     creates => '/var/log/upload_software_list.log',
