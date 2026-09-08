@@ -55,8 +55,8 @@ class dnf2git (
 
   Package<| |> -> Exec['upload_software_list.py']
   exec { 'upload_software_list.py':
-    command => "${software_list_generator_prefix}/upload_software_list.py > /var/log/upload_software_list.log",
-    creates => '/var/log/upload_software_list.log',
+    command => "${software_list_generator_prefix}/upload_software_list.py > /tmp/upload_software_list.log",
+    creates => '/tmp/upload_software_list.log',
     require => File["${software_list_generator_prefix}/upload_software_list.py"],
   }
 }
